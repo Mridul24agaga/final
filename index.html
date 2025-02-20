@@ -895,44 +895,70 @@
                             <h2 class="text-anime-style-3" data-cursor="-opaque">Get in touch with us</h2>
                         </div>
 
-                        <form id="contactForm" action="#" method="POST" data-toggle="validator">
+                        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                            <input type="hidden" name="access_key" value="28da1f8d-31cf-4ce7-999e-192d59730ea3">
+                            
                             <div class="row">
                                 <div class="form-group col-md-6 mb-4">
-                                    <input type="text" name="name" class="form-control" id="name"
-                                        placeholder="Enter Your name" required="">
-                                    <div class="help-block with-errors"></div>
+                                    <input type="text" name="name" class="form-control" placeholder="Enter Your Name" required>
                                 </div>
-
+                        
                                 <div class="form-group col-md-6 mb-4">
-                                    <input type="email" name="email" class="form-control" id="email"
-                                        placeholder="Enter Your email" required="">
-                                    <div class="help-block with-errors"></div>
+                                    <input type="email" name="email" class="form-control" placeholder="Enter Your Email" required>
                                 </div>
-
+                        
                                 <div class="form-group col-md-6 mb-4">
-                                    <input type="text" name="phone" class="form-control" id="phone"
-                                        placeholder="Phone number" required="">
-                                    <div class="help-block with-errors"></div>
+                                    <input type="text" name="phone" class="form-control" placeholder="Phone Number" required>
                                 </div>
-
+                        
                                 <div class="form-group col-md-6 mb-4">
-                                    <input type="text" name="website" class="form-control" id="website"
-                                        placeholder="Subject" required="">
-                                    <div class="help-block with-errors"></div>
+                                    <input type="text" name="website" class="form-control" placeholder="Subject" required>
                                 </div>
-
+                        
                                 <div class="form-group col-md-12 mb-5">
-                                    <textarea name="msg" class="form-control" id="msg" rows="3" placeholder="Message"
-                                        required=""></textarea>
-                                    <div class="help-block with-errors"></div>
+                                    <textarea name="message" class="form-control" rows="3" placeholder="Message" required></textarea>
                                 </div>
-
+                        
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn-default">submit</button>
-                                    <div id="msgSubmit" class="h3 hidden"></div>
+                                    <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
+                                    <div id="loading" class="d-none">Sending...</div>
+                                    <div id="msgSubmit" class="h3 d-none"></div>
                                 </div>
                             </div>
                         </form>
+                        
+                        <script>
+                            document.getElementById("contactForm").addEventListener("submit", function(event) {
+                                event.preventDefault();
+                                
+                                const formData = new FormData(this);
+                                const submitBtn = document.getElementById("submitBtn");
+                                const loading = document.getElementById("loading");
+                                const msgSubmit = document.getElementById("msgSubmit");
+                        
+                                submitBtn.disabled = true;
+                                loading.classList.remove("d-none");
+                        
+                                fetch("https://api.web3forms.com/submit", {
+                                    method: "POST",
+                                    body: formData
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                    loading.classList.add("d-none");
+                                    submitBtn.disabled = false;
+                                    
+                                    msgSubmit.textContent = "Message sent successfully!";
+                                    msgSubmit.classList.remove("d-none");
+                                    this.reset();
+                                })
+                                .catch(() => {
+                                    loading.classList.add("d-none");
+                                    submitBtn.disabled = false;
+                                    alert("Something went wrong! Please try again.");
+                                });
+                            });
+                        </script>
                     </div>
                 </div>
             </div>
