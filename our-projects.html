@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Dedicated to turning your vision into reality, we blend precision with passion. Every project reflects our commitment to excellence and unmatched craftsmanship.    ">
+	<meta name="keywords" content="construction, remodeling">
+	<title>Venova Construction</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="css/slicknav.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/swiper-bundle.min.css">
+	<link href="css/all.css" rel="stylesheet" media="screen">
+	<link href="css/animate.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<link rel="stylesheet" href="css/mousecursor.css">
+	<link href="css/custom.css" rel="stylesheet" media="screen">
+</head>
+<body>
+
+   
+    <header class="main-header">
+        <div class="header-sticky">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/">
+                        <img src="Green Modern Marketing Logo (4) (1).png" alt="Logo">
+                    </a>
+                    <style>
+                        .main-header .navbar-nav .nav-item .nav-link {
+                            color: black;
+                        }
+                        .header-border {
+                            height: 1px;
+                            background-color: #333333;
+                            opacity: 0.2;
+                            margin-top: -1px;
+                        }
+                    </style>
+    
+                    <div class="collapse navbar-collapse main-menu">
+                        <div class="nav-menu-wrapper">
+                            <ul class="navbar-nav mr-auto" id="menu">
+                                <li class="nav-item "><a class="nav-link" href="index.html">Home</a></li>                                
+                                <li class="nav-item"><a class="nav-link" href="index.html#about">About Us</a></li>
+                                <li class="nav-item"><a class="nav-link" href="index.html#service">Services</a></li>
+                                <li class="nav-item"><a class="nav-link" href="index.html#why">Why Choose Us?</a></li>
+                                <li class="nav-item"><a class="nav-link" href="index.html#project">Our Projects</a></li>
+                                <li class="nav-item"><a class="nav-link" href="index.html#testimonial">Testimonials</a></li>        
+                                <li class="nav-item"><a class="nav-link" href="index.html#faq">FAQ</a></li>                               
+                            </ul>
+                        </div>
+                        <div class="header-btn d-inline-flex">
+                            <a href="#contact" class="btn-default">Contact Us</a>
+                        </div>
+                    </div>
+                    <div class="navbar-toggle"></div>
+                </div>
+            </nav>
+            <div class="responsive-menu"></div>
+        </div>
+    </header>
+    <div class="header-border"></div>
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .ba-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .ba-section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .ba-section-title h2 {
+            color: #1a1a1a;
+            font-size: 36px;
+            margin: 0;
+            font-weight: 700;
+        }
+        .ba-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .ba-wrapper {
+            display: flex;
+            width: 100%;
+            max-width: 480px;
+            height: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid #e0e0e0;
+        }
+        .ba-before,
+        .ba-after {
+            position: relative;
+            width: 50%;
+            height: 100%;
+        }
+        .ba-before img,
+        .ba-after img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+        }
+        .ba-label {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            z-index: 2;
+            top: 10px;
+        }
+        .ba-before-label {
+            left: 10px;
+        }
+        .ba-after-label {
+            right: 10px;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        .popup img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: auto;
+            height: auto;
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .nav-arrows {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .arrow {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            -webkit-user-select: none;
+            background-color: rgba(0,0,0,0.8);
+        }
+        .right-arrow {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .left-arrow {
+            left: 0;
+        }
+        .arrow:hover {
+            background-color: rgba(0,0,0,0.9);
+        }
+        @media (max-width: 600px) {
+            .popup img {
+                max-width: 85%;
+                max-height: 85%;
+            }
+            .arrow {
+                padding: 8px;
+                font-size: 16px;
+            }
+        }
+    </style>
+    
+    <script>
+        let currentImageIndex = 0;
+        const images = [
+            '111.jpg', '112.jpg', '113.jpg', '114.jpg', 
+            '115.jpg', '116.jpg', '180.jpg', '181.jpg',
+            '117.jpg', '118.jpg', '119.jpg', '120.jpg',
+            '121.jpg', '122.jpg', '170.jpg', '171.jpg',
+            '172.jpg', '173.jpg', '123.jpg', '124.jpg',
+            '126.jpg', '127.jpg', '182.jpg', '183.jpg',
+            '128.jpg', '129.jpg', '130.jpg', '131.jpg',
+            '132.jpg', '133.jpg'
+        ];
+
+        function openPopup(imageSrc) {
+            var popup = document.getElementById("imagePopup");
+            var popupImage = document.getElementById("popupImage");
+            popup.style.display = "block";
+            popupImage.src = imageSrc;
+            currentImageIndex = images.indexOf(imageSrc);
+        }
+
+        function closePopup() {
+            var popup = document.getElementById("imagePopup");
+            popup.style.display = "none";
+        }
+
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) currentImageIndex = images.length - 1;
+            if (currentImageIndex >= images.length) currentImageIndex = 0;
+            document.getElementById("popupImage").src = images[currentImageIndex];
+        }
+
+        // Close the popup when clicking outside the image
+        window.onclick = (event) => {
+            var popup = document.getElementById("imagePopup");
+            if (event.target == popup) {
+                popup.style.display = "none";
+            }
+        }
+    </script>
+        <div class="ba-container">
+            <div class="ba-section-title">
+                <h2>Kitchen Remodel</h2>
+            </div>
+            
+            <div class="ba-row">
+                <div class="ba-wrapper">
+                    <div class="ba-before">
+                        <img src="111.jpg" alt="Before Remodel" onclick="openPopup('111.jpg')">
+                        <span class="ba-label ba-before-label">Before Remodel</span>
+                    </div>
+                    <div class="ba-after">
+                        <img src="112.jpg" alt="After Remodel" onclick="openPopup('112.jpg')">
+                        <span class="ba-label ba-after-label">After Remodel</span>
+                    </div>
+                </div>
+    
+                <div class="ba-wrapper">
+                    <div class="ba-before">
+                        <img src="113.jpg" alt="Before Remodel" onclick="openPopup('113.jpg')">
+                        <span class="ba-label ba-before-label">Before Remodel</span>
+                    </div>
+                    <div class="ba-after">
+                        <img src="114.jpg" alt="After Remodel" onclick="openPopup('114.jpg')">
+                        <span class="ba-label ba-after-label">After Remodel</span>
+                    </div>
+                </div>
+    
+                <div class="ba-wrapper">
+                    <div class="ba-before">
+                        <img src="115.jpg" alt="Before Remodel" onclick="openPopup('115.jpg')">
+                        <span class="ba-label ba-before-label">Before Remodel</span>
+                    </div>
+                    <div class="ba-after">
+                        <img src="116.jpg" alt="After Remodel" onclick="openPopup('116.jpg')">
+                        <span class="ba-label ba-after-label">After Remodel</span>
+                    </div>
+                </div>
+    
+                <div class="ba-wrapper">
+                    <div class="ba-before">
+                        <img src="180.jpg" alt="Before Remodel" onclick="openPopup('180.jpg')">
+                        <span class="ba-label ba-before-label">Before Remodel</span>
+                    </div>
+                    <div class="ba-after">
+                        <img src="181.jpg" alt="After Remodel" onclick="openPopup('181.jpg')">
+                        <span class="ba-label ba-after-label">After Remodel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="imagePopup" class="popup">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <div class="popup-content">
+                <pinch-zoom>
+                    <img id="popupImage" src="/placeholder.svg" alt="Full Resolution Image">
+                </pinch-zoom>
+            </div>
+            <div class="nav-arrows">
+                <span class="arrow left-arrow" onclick="changeImage(-1)">&#10094;</span>
+                <span class="arrow right-arrow" onclick="changeImage(1)">&#10095;</span>
+            </div>
+        </div>
+        <div style="margin-top: 50px;" class="ba-container">
+            <div class="ba-section-title">
+                <h2>Bathroom Remodel</h2>
+            </div>
+            
+            <div class="ba-row">
+                <div class="ba-wrapper">
+                    <div class="ba-before">
+                        <img src="123.jpg" alt="Before Remodel" onclick="openPopup('123.jpg')">
+                        <span class="ba-label ba-before-label">Before Remodel</span>
+                    </div>
+                    <div class="ba-after">
+                        <img src="124.jpg" alt="After Remodel" onclick="openPopup('124.jpg')">
+                        <span class="ba-label ba-after-label">After Remodel</span>
+                    </div>
+                </div>
+    
+                <div class="ba-wrapper">
+                    <div class="ba-before">
+                        <img src="126.jpg" alt="Before Remodel" onclick="openPopup('126.jpg')">
+                        <span class="ba-label ba-before-label">Before Remodel</span>
+                    </div>
+                    <div class="ba-after">
+                        <img src="127.jpg" alt="After Remodel" onclick="openPopup('127.jpg')">
+                        <span class="ba-label ba-after-label">After Remodel</span>
+                    </div>
+                </div>
+    
+                <div class="ba-wrapper">
+                    <div class="ba-before">
+                        <img src="182.jpg" alt="Before Remodel" onclick="openPopup('182.jpg')">
+                        <span class="ba-label ba-before-label">Before Remodel</span>
+                    </div>
+                    <div class="ba-after">
+                        <img src="183.jpg" alt="After Remodel" onclick="openPopup('183.jpg')">
+                        <span class="ba-label ba-after-label">After Remodel</span>
+                    </div>
+                </div>
+                    <div class="ba-wrapper">
+                        <div class="ba-before">
+                            <img src="170.jpg" alt="Before Remodel" onclick="openPopup('170.jpg')">
+                            <span class="ba-label ba-before-label">Before Remodel</span>
+                        </div>
+                        <div class="ba-after">
+                            <img src="171.jpg" alt="After Remodel" onclick="openPopup('171.jpg')">
+                            <span class="ba-label ba-after-label">After Remodel</span>
+                        </div>
+                    </div>
+        
+                    <div class="ba-wrapper">
+                        <div class="ba-before">
+                            <img src="172.jpg" alt="Before Remodel" onclick="openPopup('172.jpg')">
+                            <span class="ba-label ba-before-label">Before Remodel</span>
+                        </div>
+                        <div class="ba-after">
+                            <img src="173.jpg" alt="After Remodel" onclick="openPopup('173.jpg')">
+                            <span class="ba-label ba-after-label">After Remodel</span>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div style="margin-top: 50px;" class="ba-container">
+            <div class="ba-section-title">
+                <h2>Bedroom Remodel</h2>
+            </div>
+            
+            <div class="ba-row">
+                <div class="ba-wrapper">
+                    <div class="ba-before">
+                        <img src="128.jpg" alt="Before Remodel" onclick="openPopup('128.jpg')">
+                        <span class="ba-label ba-before-label">Before Remodel</span>
+                    </div>
+                    <div class="ba-after">
+                        <img src="129.jpg" alt="After Remodel" onclick="openPopup('129.jpg')">
+                        <span class="ba-label ba-after-label">After Remodel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 50px;" class="ba-container">
+            <div class="ba-section-title">
+                <h2>Common Areas Remodel</h2>
+            </div>
+            
+            <div class="ba-row">
+                <div class="ba-wrapper">
+                    <div class="ba-before">
+                        <img src="117.jpg" alt="Before Remodel" onclick="openPopup('117.jpg')">
+                        <span class="ba-label ba-before-label">Before Remodel</span>
+                    </div>
+                    <div class="ba-after">
+                        <img src="118.jpg" alt="After Remodel" onclick="openPopup('118.jpg')">
+                        <span class="ba-label ba-after-label">After Remodel</span>
+                    </div>
+                </div>
+    
+                <div class="ba-wrapper">
+                    <div class="ba-before">
+                        <img src="119.jpg" alt="Before Remodel" onclick="openPopup('119.jpg')">
+                        <span class="ba-label ba-before-label">Before Remodel</span>
+                    </div>
+                    <div class="ba-after">
+                        <img src="120.jpg" alt="After Remodel" onclick="openPopup('120.jpg')">
+                        <span class="ba-label ba-after-label">After Remodel</span>
+                    </div>
+                </div>
+    
+                <div class="ba-wrapper">
+                    <div class="ba-before">
+                        <img src="121.jpg" alt="Before Remodel" onclick="openPopup('121.jpg')">
+                        <span class="ba-label ba-before-label">Before Remodel</span>
+                    </div>
+                    <div class="ba-after">
+                        <img src="122.jpg" alt="After Remodel" onclick="openPopup('122.jpg')">
+                        <span class="ba-label ba-after-label">After Remodel</span>
+                    </div>
+                </div>
+                    <div class="ba-wrapper">
+                        <div class="ba-before">
+                            <img src="130.jpg" alt="Before Remodel" onclick="openPopup('130.jpg')">
+                            <span class="ba-label ba-before-label">Before Remodel</span>
+                        </div>
+                        <div class="ba-after">
+                            <img src="131.jpg" alt="After Remodel" onclick="openPopup('131.jpg')">
+                            <span class="ba-label ba-after-label">After Remodel</span>
+                        </div>
+                    </div>
+                    <div class="ba-wrapper">
+                        <div class="ba-before">
+                            <img src="132.jpg" alt="Before Remodel" onclick="openPopup('132.jpg')">
+                            <span class="ba-label ba-before-label">Before Remodel</span>
+                        </div>
+                        <div class="ba-after">
+                            <img src="133.jpg" alt="After Remodel" onclick="openPopup('133.jpg')">
+                            <span class="ba-label ba-after-label">After Remodel</span>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    
+        
+    
+      
+
+<div class="video-section">
+    <div class="ba-section-title">
+        <h2>Video Tours</h2>
+    </div>
+    <div class="video-container">
+        <div class="video-wrapper animate-on-scroll">
+            <video controls muted>
+                <source src="video1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-wrapper animate-on-scroll">
+            <video controls muted>
+                <source src="152.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-wrapper animate-on-scroll">
+            <video controls muted>
+                <source src="153.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-wrapper animate-on-scroll">
+            <video controls muted>
+                <source src="154.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-wrapper animate-on-scroll">
+            <video controls muted>
+                <source src="155.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-wrapper animate-on-scroll">
+            <video controls muted>
+                <source src="156.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-wrapper animate-on-scroll">
+            <video controls muted>
+                <source src="157.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-wrapper animate-on-scroll">
+            <video controls muted>
+                <source src="158.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-wrapper animate-on-scroll">
+            <video controls muted>
+                <source src="159.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</div>
+
+<style>
+    .video-section {
+        margin-top: 50px;
+        padding: 20px;
+    }
+
+    .video-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .video-wrapper {
+        width: 100%;
+        padding-top: 177.78%; /* 9:16 aspect ratio */
+        position: relative;
+    }
+
+    .video-wrapper video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    @media (min-width: 768px) {
+        .video-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .video-container {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .video-wrapper {
+            max-height: 70vh;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .video-container {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .animate-on-scroll.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+
+<script>
+    function handleIntersection(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }
+
+    const observer = new IntersectionObserver(handleIntersection, {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const elements = document.querySelectorAll('.animate-on-scroll');
+        elements.forEach(el => observer.observe(el));
+    });
+</script>
+
+
+
+
+<!-- Our Projects Section Start -->
+<div style="background-color: white;" class="our-projects">
+    <div style="background-color: white;" class="light-bg-section">
+        <div class="container-fluid">
+            <div class="row section-row">
+                <div class="col-lg-12">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h2 class="text-anime-style-3" data-cursor="-opaque">Explore More of Our Projects</h2>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <!-- Project Item Start -->
+                    <div class="project-item wow fadeInUp" data-wow-delay="0.25s">
+                        <!-- Project Image Start -->
+                        <div class="project-image" data-cursor-text="View">
+                            <a href="#">
+                                <figure>
+                                    <img src="1.jpeg" alt="">
+                                </figure>
+                            </a>
+                        </div>
+                        <!-- Project Image End -->
+
+                       
+                    </div>
+                    <!-- Project Item End -->
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <!-- Project Item Start -->
+                    <div class="project-item wow fadeInUp" data-wow-delay="0.5s">
+                        <!-- Project Image Start -->
+                        <div class="project-image" data-cursor-text="View">
+                            <a href="#">
+                                <figure>
+                                    <img src="2.jpeg" alt="">
+                                </figure>
+                            </a>
+                        </div>
+
+                        <!-- Project Image End -->
+
+                       
+                    </div>
+                    <!-- Project Item End -->
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <!-- Project Item Start -->
+                    <div class="project-item wow fadeInUp" data-wow-delay="0.75s">
+                        <!-- Project Image Start -->
+                        <div class="project-image" data-cursor-text="View">
+                            <a href="#">
+                                <figure>
+                                    <img src="3.jpeg" alt="">
+                                </figure>
+                            </a>
+                        </div>
+                        <!-- Project Image End -->
+
+                        
+                    </div>
+                    <!-- Project Item End -->
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <!-- Project Item Start -->
+                    <div class="project-item wow fadeInUp" data-wow-delay="1s">
+                        <!-- Project Image Start -->
+                        <div class="project-image" data-cursor-text="View">
+                            <a href="#">
+                                <figure>
+                                    <img src="150.jpg" alt="">
+                                </figure>
+                            </a>
+                        </div>
+                        <!-- Project Image End -->
+
+                        
+                    </div>
+                    <!-- Project Item End -->
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <!-- Project Item Start -->
+                    <div class="project-item wow fadeInUp" data-wow-delay="1s">
+                        <!-- Project Image Start -->
+                        <div class="project-image" data-cursor-text="View">
+                            <a href="#">
+                                <figure>
+                                    <img src="151.jpg" alt="">
+                                </figure>
+                            </a>
+                        </div>
+                        <!-- Project Image End -->
+
+                        
+                    </div>
+                    <!-- Project Item End -->
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <!-- Project Item Start -->
+                    <div class="project-item wow fadeInUp" data-wow-delay="1s">
+                        <!-- Project Image Start -->
+                        <div class="project-image" data-cursor-text="View">
+                            <a href="#">
+                                <figure>
+                                    <img src="152.jpg" alt="">
+                                </figure>
+                            </a>
+                        </div>
+                        <!-- Project Image End -->
+
+                        
+                    </div>
+                    <!-- Project Item End -->
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <!-- Project Item Start -->
+                    <div class="project-item wow fadeInUp" data-wow-delay="1s">
+                        <!-- Project Image Start -->
+                        <div class="project-image" data-cursor-text="View">
+                            <a href="#">
+                                <figure>
+                                    <img src="153.jpg" alt="">
+                                </figure>
+                            </a>
+                        </div>
+                        <!-- Project Image End -->
+
+                        
+                    </div>
+                    <!-- Project Item End -->
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <!-- Project Item Start -->
+                    <div class="project-item wow fadeInUp" data-wow-delay="1s">
+                        <!-- Project Image Start -->
+                        <div class="project-image" data-cursor-text="View">
+                            <a href="#">
+                                <figure>
+                                    <img src="154.jpg" alt="">
+                                </figure>
+                            </a>
+                        </div>
+                        <!-- Project Image End -->
+
+                        
+                    </div>
+                    <!-- Project Item End -->
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <!-- Project Item Start -->
+                    <div class="project-item wow fadeInUp" data-wow-delay="1s">
+                        <!-- Project Image Start -->
+                        <div class="project-image" data-cursor-text="View">
+                            <a href="#">
+                                <figure>
+                                    <img src="155.jpg" alt="">
+                                </figure>
+                            </a>
+                        </div>
+                        <!-- Project Image End -->
+
+                        
+                    </div>
+                    <!-- Project Item End -->
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <!-- Project Item Start -->
+                    <div class="project-item wow fadeInUp" data-wow-delay="1s">
+                        <!-- Project Image Start -->
+                        <div class="project-image" data-cursor-text="View">
+                            <a href="#">
+                                <figure>
+                                    <img src="156.jpg" alt="">
+                                </figure>
+                            </a>
+                        </div>
+                        <!-- Project Image End -->
+
+                        
+                    </div>
+                    <!-- Project Item End -->
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <!-- Project Item Start -->
+                    <div class="project-item wow fadeInUp" data-wow-delay="1s">
+                        <!-- Project Image Start -->
+                        <div class="project-image" data-cursor-text="View">
+                            <a href="#">
+                                <figure>
+                                    <img src="157.jpg" alt="">
+                                </figure>
+                            </a>
+                        </div>
+                        <!-- Project Image End -->
+
+                        
+                    </div>
+                    <!-- Project Item End -->
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <!-- Project Item Start -->
+                    <div class="project-item wow fadeInUp" data-wow-delay="1s">
+                        <!-- Project Image Start -->
+                        <div class="project-image" data-cursor-text="View">
+                            <a href="#">
+                                <figure>
+                                    <img src="159.jpg" alt="">
+                                </figure>
+                            </a>
+                        </div>
+                        <!-- Project Image End -->
+
+                        
+                    </div>
+                    <!-- Project Item End -->
+                </div>
+    
+                <!-- Services Footer Btn Start -->
+                
+                <!-- Services Footer Btn End -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Our Projects Section End -->
+	
+   
+
+   
+	<footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-12">
+                    <div class="about-footer">
+                        <div class="footer-logo">
+                            <figure>
+                                <img src="Green Modern Marketing Logo (4) (1).png" alt="">
+                            </figure>
+                        </div>
+
+                        <div class="footer-content">
+                            <p>Our post-construction services gives you peace of mind knowing that we are still here for you even after.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-12">
+                    <div class="footer-links">
+                        <h3>Hours of Operation</h3>
+                        <ul>                            
+                            <li>Mon - Sat 8:00am - 5:00pm</li>
+                            <li>Sunday Closed</li>
+                            
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-12">
+                    <div class="footer-links">
+                        <h3>Our Locations</h3>
+                        <ul>
+                            <li>Bay Area</li>
+                            <li>Valley</li>
+                            <li>All Surrounding Areas</li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-12">
+                    <div class="footer-links footer-contact-box">
+                        <h3>contact us</h3>
+                        <div class="footer-info-box">
+                            <div class="icon-box">
+                                <img src="images/icon-phone.svg" alt="">
+                            </div>
+                            <p>+1 (510)759-5361</p>
+                        </div>
+
+                        <div class="footer-info-box">
+                            <div class="icon-box">
+                                <img src="images/icon-mail.svg" alt="">
+                            </div>
+                            <p>sal@venovainc.com</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-copyright">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-7">
+                        <div class="footer-copyright-text">
+                            <p>Copyright © 2025 Venova Construction INC. All Rights Reserved.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-5">
+                        <div class="footer-social-links">
+                            <ul>
+                                <li><a href="https://www.yelp.com/biz/venova-construction-pinole"><i class="fa-brands fa-yelp"></i></a></li>
+                                <li><a href="https://www.tiktok.com/@venova2020"><i class="fa-brands fa-tiktok"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</footer>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/validator.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/SmoothScroll.js"></script>
+    <script src="js/parallaxie.js"></script>
+    <script src="js/gsap.min.js"></script>
+    <script src="js/magiccursor.js"></script>
+    <script src="js/SplitText.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/function.js"></script>
+	<script src="../../assets/js/theme-panel.js"></script>
+</body>
+
+</html>
