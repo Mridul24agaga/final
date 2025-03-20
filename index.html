@@ -918,8 +918,13 @@
                                     <input type="text" name="website" class="form-control" placeholder="Subject" required>
                                 </div>
                         
-                                <div class="form-group col-md-12 mb-5">
+                                <div class="form-group col-md-12 mb-4">
                                     <textarea name="message" class="form-control" rows="3" placeholder="Message" required></textarea>
+                                </div>
+                        
+                                <div class="form-group col-md-12 mb-4">
+                                    <input type="checkbox" id="consent" name="consent" required>
+                                    <label for="consent">I consent to receive text messages from this business.</label>
                                 </div>
                         
                                 <div class="col-md-12">
@@ -929,6 +934,7 @@
                                 </div>
                             </div>
                         </form>
+                        
                         
                         <script>
                             document.getElementById("contactForm").addEventListener("submit", function(event) {
